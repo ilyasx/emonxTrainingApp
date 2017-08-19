@@ -10,6 +10,7 @@ html
 	background-image: -o-radial-gradient(top center, circle cover, #E7E7E8 30%, #C6C6C6);
 	background-image: radial-gradient(top center, circle cover, #E7E7E8 30%, #C6C6C6);
 	height: 100%;
+	width:50%;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -86,5 +87,6 @@ h1 span { color: #2006A5; font-weight: 400; }
 	position:relative;
 	top:1px;
 }
+
 
 

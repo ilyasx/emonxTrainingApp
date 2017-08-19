@@ -14,7 +14,7 @@
  
 		<h1>Emonx <span>New Experiment</span></h1>
 
-		<canvas id="canvas" width="500" height="500" style="border:8px solid; float: left; margin: 70px; margin-top:160px;  border-radius: 1px; cursor: crosshair;"></canvas>
+		<canvas id="canvas" style="border:8px solid; float: left; margin: 70px; margin-top:160px;  border-radius: 1px; cursor: crosshair;"></canvas>
 		<div id="debug" style="margin:65px; margin-top:100px;">
 
 			
@@ -22,7 +22,7 @@
 			 <input type="number" id="lineWidth" style="width:60px" value="0.2" step="0.1" min="0.1">
 			<input type="button" id="clearButton" value="Clear" style="">
 			<br/>
-			<span style="color: #4DAF7C; font-weight: 400; font-family: 'Open Sans', Helvetica;	">Draw the Digit inside this Box!</span>
+			<span style="color: #2006A5; font-weight: 400; font-family: 'Open Sans', Helvetica;	">Draw the Digit inside this Box!</span>
 		</div>
 
 		<div style="margin-left:675px; margin-top:260px; float:left; position:absolute;">

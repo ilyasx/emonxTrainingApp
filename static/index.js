@@ -2,8 +2,8 @@
 {
 	var canvas = document.querySelector( "#canvas" );
 	var context = canvas.getContext( "2d" );
-	canvas.width = 500;
-	canvas.height = 500;
+	canvas.width = 350;
+	canvas.height = 300;
 
 	var Mouse = { x: 0, y: 0 };
 	var lastMouse = { x: 0, y: 0 };
@@ -11,9 +11,42 @@
 	context.fillRect(0,0,canvas.width,canvas.height);
 	context.color = "black";
 	context.lineWidth = 0.5;
-    context.lineJoin = context.lineCap = 'round';
+	context.lineJoin = context.lineCap = 'round';
 	
 	debug();
+	// Set up touch events for mobile, etc
+	canvas.addEventListener("touchstart", function (e) {
+		mousePos = getTouchPos(canvas, e);
+		var touch = e.touches[0];
+		var mouseEvent = new MouseEvent("mousedown", {
+			clientX: touch.clientX,
+			clientY: touch.clientY
+	 	 });
+	  canvas.dispatchEvent(mouseEvent);
+	}, false);
+
+	canvas.addEventListener("touchend", function (e) {
+		  var mouseEvent = new MouseEvent("mouseup", {});
+		  canvas.dispatchEvent(mouseEvent);
+	}, false);
+
+	canvas.addEventListener("touchmove", function (e) {
+	  var touch = e.touches[0];
+	  var mouseEvent = new MouseEvent("mousemove", {
+	    clientX: touch.clientX,
+	    clientY: touch.clientY
+	  });
+	  canvas.dispatchEvent(mouseEvent);
+	}, false);
+
+	// Get the position of a touch relative to the canvas
+	function getTouchPos(canvasDom, touchEvent) {
+	  var rect = canvasDom.getBoundingClientRect();
+	  return {
+	    x: touchEvent.touches[0].clientX - rect.left,
+	    y: touchEvent.touches[0].clientY - rect.top
+	  };
+	}
 
 	canvas.addEventListener( "mousemove", function( e )
 	{
@@ -25,6 +58,7 @@
 
 	}, false );
 
+	
 	canvas.addEventListener( "mousedown", function( e )
 	{
 		canvas.addEventListener( "mousemove", onPaint, false );
